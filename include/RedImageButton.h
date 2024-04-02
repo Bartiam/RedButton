@@ -5,6 +5,7 @@
 #include <QPaintEvent>
 #include <Qpainter>
 #include <QTimer>
+#include <QMediaPlayer>
 
 class RedButton : public QPushButton
 {
@@ -20,9 +21,6 @@ public:
 	void paintEvent(QPaintEvent *ev) override;
 	// Прототип метода указывающего минимальный размер виджета;
 	QSize minimumSizeHint() const override;
-	// Прототип метода ;
-	void keyPressEvent(QKeyEvent *ev) override;
-
 public slots:
 	// Прототип слота для установки кнопки в не нажатое положение;
 	void setUp();
@@ -31,4 +29,5 @@ public slots:
 private:
 	// Переменная для установки текущей кнопки;
 	QPixmap currentButtonPosition;
+	QMediaPlayer player;
 };

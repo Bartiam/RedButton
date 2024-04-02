@@ -12,6 +12,8 @@ RedButton::RedButton(QWidget* parent)
 	setFixedSize(QSize(300, 300));
 	// Коннект нажатия на кнопку мыши с методом setDown;
 	connect(this, &QPushButton::pressed, this, &RedButton::setDown);
+	// Загрузка звука при нажатии на кнопку;
+	player.setMedia(QUrl::fromLocalFile("../../Materials/SoundPushButton.mp3"));
 }
 // Реализация метода отрисовки кнопки;
 void RedButton::paintEvent(QPaintEvent* ev)
@@ -26,12 +28,6 @@ QSize RedButton::minimumSizeHint() const
 {
 	return QSize(100, 100);
 }
-// Реализация метода реакции кнопки на нажатие;
-void RedButton::keyPressEvent(QKeyEvent* ev)
-{
-	// Вызов метода setDown;
-	setDown();
-}
 // Реализация метода для установки кнопки в не нажатое положение;
 void RedButton::setUp()
 {
@@ -44,7 +40,9 @@ void RedButton::setDown()
 {
 	// Установка текущей кнопки;
 	currentButtonPosition = QPixmap("../../Materials/PushedButton.png");
+	// Запуск звука при нажатии на кнопку;
+	player.play();
 	// Запуск таймера;
-	QTimer::singleShot(100, this, &RedButton::setUp);
+	QTimer::singleShot(300, this, &RedButton::setUp);
 	update();
 }
