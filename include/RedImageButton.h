@@ -1,5 +1,4 @@
 ﻿#pragma once
-#include <QApplication>
 #include <QPushButton>
 #include <QPixMap>
 #include <QPaintEvent>
