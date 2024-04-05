@@ -7,13 +7,13 @@ RedButton::RedButton(QWidget* parent)
 	// Вывод сообщения при наведении указателя мыши на кнопку;
 	setToolTip("Click!");
 	// Загрузка картинки по умолчанию;
-	currentButtonPosition = QPixmap("../../Materials/PushButton.png");
+	currentButtonPosition = QPixmap("../Materials/PushButton.png");
 	// Установка фиксированного размера окна;
 	setFixedSize(QSize(300, 300));
 	// Коннект нажатия на кнопку мыши с методом setDown;
 	connect(this, &QPushButton::pressed, this, &RedButton::setDown);
 	// Загрузка звука при нажатии на кнопку;
-	player.setMedia(QUrl::fromLocalFile("../../Materials/SoundPushButton.mp3"));
+	player.setMedia(QUrl::fromLocalFile("../Materials/SoundPushButton.mp3"));
 }
 // Реализация метода отрисовки кнопки;
 void RedButton::paintEvent(QPaintEvent* ev)
@@ -32,14 +32,14 @@ QSize RedButton::minimumSizeHint() const
 void RedButton::setUp()
 {
 	// Установка текущей кнопки;
-	currentButtonPosition = QPixmap("../../Materials/PushButton.png");
+	currentButtonPosition = QPixmap("../Materials/PushButton.png");
 	update();
 }
 // Реализация метода для установки кнопки в нажатое положение;
 void RedButton::setDown()
 {
 	// Установка текущей кнопки;
-	currentButtonPosition = QPixmap("../../Materials/PushedButton.png");
+	currentButtonPosition = QPixmap("../Materials/PushedButton.png");
 	// Запуск звука при нажатии на кнопку;
 	player.play();
 	// Запуск таймера;
